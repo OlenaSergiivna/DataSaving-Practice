@@ -16,8 +16,24 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lz8-ru-koy">
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="rFc-rF-cuB"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="iGu-fg-F1m"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lz8-ru-koy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8Lp-GB-rdC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lz8-ru-koy" secondAttribute="trailing" id="Raq-gO-aqU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lz8-ru-koy" secondAttribute="bottom" id="Xjn-Fi-Mt6"/>
+                            <constraint firstItem="lz8-ru-koy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yLI-wc-0Jl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RYj-rY-G8r">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="qW0-69-2kB">
@@ -26,6 +42,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="shoppingListTableView" destination="lz8-ru-koy" id="7qj-Fb-fug"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

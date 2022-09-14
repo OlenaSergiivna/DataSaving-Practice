@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-func createAlert(viewController: UIViewController) {
+func createAlert(viewController: UIViewController, tableView: UITableView) {
     
     let dialogMessage = UIAlertController(title: "Alert", message: "Type an item name to add it in the list:", preferredStyle: .alert)
     
@@ -20,10 +20,12 @@ func createAlert(viewController: UIViewController) {
                 
                 UserDefaults.standard.set(GlobalVariables.shoppingListArray, forKey: "list")
                 UserDefaults.standard.synchronize()
-               
+                tableView.reloadData()
+                
             }
         }
     }
+    
     
     let cancel = UIAlertAction(title: "Cancel", style: .cancel)
     dialogMessage.addAction(add)
@@ -31,5 +33,7 @@ func createAlert(viewController: UIViewController) {
     dialogMessage.addTextField { textField in
         textField.placeholder = "Item name"
     }
+    
     viewController.present(dialogMessage, animated: true, completion: nil)
+    
 }
