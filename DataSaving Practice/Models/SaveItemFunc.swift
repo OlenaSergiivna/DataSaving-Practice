@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+func saveItem(value: [String], forKey key: String) {
+    
+    UserDefaults.standard.set(value, forKey: key)
+}

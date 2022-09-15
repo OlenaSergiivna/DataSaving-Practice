@@ -10,8 +10,8 @@ import UIKit
 
 func deleteAll(comletion: () -> Void) {
     
-    UserDefaults.standard.removeObject(forKey: "list")
-    UserDefaults.standard.synchronize()
+    GlobalVariables.shoppingListArray.removeAll()
+    saveItem(value: GlobalVariables.shoppingListArray, forKey: "list")
     comletion()
     
 }

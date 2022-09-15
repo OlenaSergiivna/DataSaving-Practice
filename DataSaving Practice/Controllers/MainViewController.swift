@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
     
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
-        deleteAll {
+        deleteAll() {
             shoppingListTableView.reloadData()
         }
     }

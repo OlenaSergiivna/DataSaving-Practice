@@ -18,11 +18,11 @@ func showAddingAlert(tableView: UITableView, completion: (UIAlertController) -> 
             
             if text.count > 2 && (text.rangeOfCharacter(from: CharacterSet.decimalDigits) == nil) {
                 addItem(name: text)
+                saveItem(value: GlobalVariables.shoppingListArray, forKey: "list")
+                //GlobalVariables.shoppingListArray.append(text)
+                //UserDefaults.standard.set(GlobalVariables.shoppingListArray, forKey: "list")
                 
-                GlobalVariables.shoppingListArray.append(text)
-                UserDefaults.standard.set(GlobalVariables.shoppingListArray, forKey: "list")
-                
-                
+                tableView.reloadData()
             }
         }
     }
