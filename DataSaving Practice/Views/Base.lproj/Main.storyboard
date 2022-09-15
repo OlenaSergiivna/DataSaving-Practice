@@ -36,6 +36,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RYj-rY-G8r">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="trash" id="XsG-9Q-Gip">
+                            <connections>
+                                <action selector="deleteButtonPressed:" destination="BYZ-38-t0r" id="ujD-AN-IwX"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="qW0-69-2kB">
                             <connections>
                                 <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="H9H-k2-3jb"/>

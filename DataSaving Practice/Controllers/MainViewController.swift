@@ -13,13 +13,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        shoppingListTableView.reloadData()
+        //shoppingListTableView.reloadData()
         
         if let value = UserDefaults.standard.stringArray(forKey: "list") {
             GlobalVariables.shoppingListArray = value
         }
-//        UserDefaults.standard.removeObject(forKey: "list")
-//        UserDefaults.standard.synchronize()
         print(GlobalVariables.shoppingListArray)
         print(UserDefaults.standard.stringArray(forKey: "list"))
         
@@ -27,9 +25,19 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        createAlert(viewController: self, tableView: shoppingListTableView)
+        
+        showAddingAlert(tableView: shoppingListTableView) { dialogMessage in
+            self.present(dialogMessage, animated: true)
+        }
         print(GlobalVariables.shoppingListArray.count)
        
+    }
+    
+    
+    @IBAction func deleteButtonPressed(_ sender: Any) {
+        deleteAll {
+            shoppingListTableView.reloadData()
+        }
     }
     
     
@@ -58,15 +66,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
         let deleteAction = UIContextualAction(style: .normal, title: "Delete") { [weak self] _, _, completion in
             print(GlobalVariables.shoppingListArray)
             
             GlobalVariables.shoppingListArray.remove(at: indexPath.row)
             UserDefaults.standard.set(GlobalVariables.shoppingListArray, forKey: "list")
             self?.shoppingListTableView.deleteRows(at: [indexPath], with: .fade)
-   
         }
         deleteAction.backgroundColor = .systemRed
+        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }

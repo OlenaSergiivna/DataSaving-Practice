@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		CE04128328D216D60042ECB5 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04128228D216D60042ECB5 /* GlobalVariables.swift */; };
 		CE04128528D21B080042ECB5 /* DeleteItemFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04128428D21B080042ECB5 /* DeleteItemFunc.swift */; };
-		CE176A3028D11CA900476609 /* CreateAlertFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE176A2F28D11CA900476609 /* CreateAlertFunc.swift */; };
+		CE176A3028D11CA900476609 /* CreateAddingAlertFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE176A2F28D11CA900476609 /* CreateAddingAlertFunc.swift */; };
+		CE6F79B528D3A78300093D4F /* DeleteAllFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F79B428D3A78300093D4F /* DeleteAllFunc.swift */; };
+		CE6F79B728D3BB1F00093D4F /* AddItemfunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F79B628D3BB1F00093D4F /* AddItemfunc.swift */; };
+		CE6F79B928D3C3C000093D4F /* SaveItemFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F79B828D3C3C000093D4F /* SaveItemFunc.swift */; };
 		CE90795F28D0A94100DDD51F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90795E28D0A94100DDD51F /* AppDelegate.swift */; };
 		CE90796128D0A94100DDD51F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90796028D0A94100DDD51F /* SceneDelegate.swift */; };
 		CE90796328D0A94100DDD51F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90796228D0A94100DDD51F /* MainViewController.swift */; };
@@ -21,7 +24,10 @@
 /* Begin PBXFileReference section */
 		CE04128228D216D60042ECB5 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		CE04128428D21B080042ECB5 /* DeleteItemFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteItemFunc.swift; sourceTree = "<group>"; };
-		CE176A2F28D11CA900476609 /* CreateAlertFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertFunc.swift; sourceTree = "<group>"; };
+		CE176A2F28D11CA900476609 /* CreateAddingAlertFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAddingAlertFunc.swift; sourceTree = "<group>"; };
+		CE6F79B428D3A78300093D4F /* DeleteAllFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllFunc.swift; sourceTree = "<group>"; };
+		CE6F79B628D3BB1F00093D4F /* AddItemfunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemfunc.swift; sourceTree = "<group>"; };
+		CE6F79B828D3C3C000093D4F /* SaveItemFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveItemFunc.swift; sourceTree = "<group>"; };
 		CE90795B28D0A94100DDD51F /* DataSaving Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DataSaving Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE90795E28D0A94100DDD51F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE90796028D0A94100DDD51F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,9 +52,12 @@
 		CE04127F28D216850042ECB5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CE176A2F28D11CA900476609 /* CreateAlertFunc.swift */,
+				CE6F79B628D3BB1F00093D4F /* AddItemfunc.swift */,
+				CE6F79B828D3C3C000093D4F /* SaveItemFunc.swift */,
+				CE176A2F28D11CA900476609 /* CreateAddingAlertFunc.swift */,
 				CE04128228D216D60042ECB5 /* GlobalVariables.swift */,
 				CE04128428D21B080042ECB5 /* DeleteItemFunc.swift */,
+				CE6F79B428D3A78300093D4F /* DeleteAllFunc.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,11 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6F79B728D3BB1F00093D4F /* AddItemfunc.swift in Sources */,
 				CE04128328D216D60042ECB5 /* GlobalVariables.swift in Sources */,
-				CE176A3028D11CA900476609 /* CreateAlertFunc.swift in Sources */,
+				CE176A3028D11CA900476609 /* CreateAddingAlertFunc.swift in Sources */,
+				CE6F79B528D3A78300093D4F /* DeleteAllFunc.swift in Sources */,
 				CE90796328D0A94100DDD51F /* MainViewController.swift in Sources */,
 				CE90795F28D0A94100DDD51F /* AppDelegate.swift in Sources */,
 				CE90796128D0A94100DDD51F /* SceneDelegate.swift in Sources */,
+				CE6F79B928D3C3C000093D4F /* SaveItemFunc.swift in Sources */,
 				CE04128528D21B080042ECB5 /* DeleteItemFunc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
