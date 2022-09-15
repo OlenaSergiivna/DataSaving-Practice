@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-func deleteAll(comletion: () -> Void) {
+func deleteAll(from array: inout [String], key: String, completion: () -> Void) {
     
-    GlobalVariables.shoppingListArray.removeAll()
-    saveItem(value: GlobalVariables.shoppingListArray, forKey: "list")
-    comletion()
+    array.removeAll()
+    UserDefaults.standard.set(array, forKey: key)
+    completion()
     
 }

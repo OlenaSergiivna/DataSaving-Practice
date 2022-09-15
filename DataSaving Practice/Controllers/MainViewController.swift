@@ -9,6 +9,14 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    var shoppingListArray: [String] = [] {
+
+        didSet {
+            print("Shopping list array amount is \(shoppingListArray.count) now : \(shoppingListArray)")
+
+        }
+    }
+    
     @IBOutlet weak var shoppingListTableView: UITableView!
     
     override func viewDidLoad() {
@@ -16,26 +24,23 @@ class MainViewController: UIViewController {
         //shoppingListTableView.reloadData()
         
         if let value = UserDefaults.standard.stringArray(forKey: "list") {
-            GlobalVariables.shoppingListArray = value
+            self.shoppingListArray = value
         }
-        print(GlobalVariables.shoppingListArray)
-        print(UserDefaults.standard.stringArray(forKey: "list"))
+//        print(GlobalVariables.shoppingListArray)
+//        print(UserDefaults.standard.stringArray(forKey: "list"))
         
         
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
-        showAddingAlert(tableView: shoppingListTableView) { dialogMessage in
-            self.present(dialogMessage, animated: true)
-        }
-        print(GlobalVariables.shoppingListArray.count)
+        showAddingAlert()
        
     }
     
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
-        deleteAll() {
+        deleteAll(from: &shoppingListArray, key: "list") {
             shoppingListTableView.reloadData()
         }
     }
@@ -68,14 +73,47 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .normal, title: "Delete") { [weak self] _, _, completion in
-            print(GlobalVariables.shoppingListArray)
             
-            GlobalVariables.shoppingListArray.remove(at: indexPath.row)
-            UserDefaults.standard.set(GlobalVariables.shoppingListArray, forKey: "list")
+            self?.shoppingListArray.remove(at: indexPath.row)
+            UserDefaults.standard.set(self?.shoppingListArray, forKey: "list")
             self?.shoppingListTableView.deleteRows(at: [indexPath], with: .fade)
         }
         deleteAction.backgroundColor = .systemRed
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
+}
+
+extension MainViewController {
+    
+    func showAddingAlert() {
+        
+        let dialogMessage = UIAlertController(title: "Alert", message: "Type an item name to add it in the list:", preferredStyle: .alert)
+        
+        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
+            
+            if let text = dialogMessage.textFields?.first?.text {
+                
+                if text.count > 2 && (text.rangeOfCharacter(from: CharacterSet.decimalDigits) == nil) {
+                    self.shoppingListArray.append(text)
+                    UserDefaults.standard.set(self.shoppingListArray, forKey: "list")
+                
+                    
+                    self.shoppingListTableView.reloadData()
+                }
+            }
+        }
+        
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        dialogMessage.addAction(addAction)
+        dialogMessage.addAction(cancel)
+        dialogMessage.addTextField { textField in
+            textField.placeholder = "Item name"
+        }
+        self.present(dialogMessage, animated: true)
+        
+        
+    }
+
 }
